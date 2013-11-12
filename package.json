@@ -15,12 +15,9 @@
     "firefox"
   ],
   "bin": {
-    "mozilla-download": "./bin/mozilla-download",
-    "mozilla-download-url": "./bin/mozilla-download-url"
   },
   "dependencies" : {
     "debug": "*",
-    "mozilla-get-url": "0.1.0",
     "dmg": "~0.0.3",
     "tmp": "~0.0.20",
     "ncp": "~0.4",

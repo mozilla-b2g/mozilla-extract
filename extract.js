@@ -2,7 +2,7 @@ var fs = require('fs'),
     fsPath = require('path'),
     ncp = require('ncp').ncp,
     tmp = require('tmp'),
-    debug = require('debug')('mozilla-runner:extract');
+    debug = require('debug')('mozilla-extract');
 
 var productMap = {
   firefox: {
