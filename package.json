@@ -14,14 +14,14 @@
     "b2g-desktop",
     "firefox"
   ],
-  "bin": {
-  },
-  "dependencies" : {
+  "bin": {},
+  "dependencies": {
     "debug": "*",
     "dmg": "~0.0.3",
     "tmp": "~0.0.20",
     "ncp": "~0.4",
-    "commander": "~2.0.0"
+    "commander": "~2.0.0",
+    "promise": "~3.2.0"
   },
   "devDependencies": {
     "mocha": "~1.7"

@@ -12,7 +12,8 @@ node_modules:
 
 .PHONY: test
 test: node_modules test/fixtures test/extract-out
-	./node_modules/mocha/bin/mocha --reporter spec -t 100s
+	./node_modules/mocha/bin/mocha \
+		$(shell find . -path ./node_modules -prune -o -name '*_test.js' -type f)
 
 .PHONY: clean
 clean:

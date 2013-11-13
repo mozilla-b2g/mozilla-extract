@@ -27,6 +27,7 @@ suite('extract', function() {
 
   function verifyTarbz2(done) {
     return function(err, path) {
+      console.log(path);
       if (err) return done(err);
       var stat = fs.statSync(path);
       assert.ok(stat.isDirectory());
@@ -46,7 +47,7 @@ suite('extract', function() {
         __dirname + '/test/extract-out/dmg';
 
       test('extract', function(done) {
-        extract('b2g', 'b2g.dmg', fixture, out, verifyDmg(done));
+        extract(fixture, out, verifyDmg(done));
       });
     });
 
@@ -61,7 +62,7 @@ suite('extract', function() {
         __dirname + '/test/extract-out/tarbz2';
 
       test('extract', function(done) {
-        extract('b2g', 'b2g.tar.bz2', fixture, out, verifyTarbz2(done));
+        extract(fixture, out, verifyTarbz2(done));
       });
     });
   });
@@ -78,7 +79,7 @@ suite('extract', function() {
         __dirname + '/test/extract-out/firefox-nightly-dmg';
 
       test('extract', function(done) {
-        extract('firefox', 'firefox.dmg', fixture, out, verifyDmg(done));
+        extract(fixture, out, verifyDmg(done));
       });
     });
 
@@ -93,7 +94,7 @@ suite('extract', function() {
         __dirname + '/test/extract-out/firefox-release-dmg';
 
       test('extract', function(done) {
-        extract('firefox', 'firefox.dmg', fixture, out, verifyDmg(done));
+        extract(fixture, out, verifyDmg(done));
       });
     });
 
@@ -108,7 +109,7 @@ suite('extract', function() {
         __dirname + '/test/extract-out/firefox-nightly-tarbz2';
 
       test('extract', function(done) {
-        extract('firefox', 'firefox.tar.bz2', fixture, out, verifyTarbz2(done));
+        extract(fixture, out, verifyTarbz2(done));
       });
     });
 
@@ -123,7 +124,7 @@ suite('extract', function() {
         __dirname + '/test/extract-out/firefox-release-tarbz2';
 
       test('extract', function(done) {
-        extract('firefox', 'firefox.tar.bz2', fixture, out, verifyTarbz2(done));
+        extract(fixture, out, verifyTarbz2(done));
       });
     });
 
