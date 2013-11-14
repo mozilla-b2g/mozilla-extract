@@ -1,24 +1,14 @@
-# Mozilla Download
+# Mozilla Extract
 
-Helper utility for downloading various mozilla products in various
-release channels. Built on top of
-[mozilla-get-url](https://github.com/mozilla-b2g/mozilla-get-url).
-
-Handles operating system detection (win32, mac, linux-i686,
-linux-x86_64) and extraction of files (.tar.bz2, .dmg).
-Extraction is platform dependent a .dmg may not unpack on linux.
+Extracts packaged mozilla products.
 
 ## Usage
 
 ``` js
-var mozdownload = require('mozilla-download');
+var extract = require('mozilla-extract');
 
-// see https://github.com/mozilla-b2g/mozilla-get-url#usage for options
-var options = {};
-
-// download firefox
-moz.download('save/me', options, functon(err, path) {
-  // path is the same as save targe
+extract('./firefox.dmg', 'firefox', function(err, path) {
+ // ...
 });
 ```
 
@@ -26,7 +16,7 @@ moz.download('save/me', options, functon(err, path) {
 ## CLI Usage
 
 ```sh
-mozilla-download path/to/place/extracted/folder
+mozilla-extract ./firefox.dmg ./firefox 
 ```
 
 ## License
