@@ -1,20 +1,23 @@
 {
-  "name": "mozilla-download",
-  "version": "0.5.0-alpha",
+  "name": "mozilla-extract",
+  "version": "0.0.1",
   "author": "James Lal [:lightsofapollo]",
-  "description": "Download firefox/b2g-desktop runtimes",
-  "main": "lib/download.js",
+  "description": "Extract a mozilla product from .tar.bz2 or .dmg",
+  "main": "extract.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mozilla-b2g/mozilla-download.git"
+    "url": "https://github.com/mozilla-b2g/mozilla-extract.git"
+  },
+  "bin": {
+    "mozilla-extract": "./bin/mozilla-extract"
   },
   "keywords": [
     "firefox os",
     "gecko",
     "b2g-desktop",
-    "firefox"
+    "firefox",
+    "extract"
   ],
-  "bin": {},
   "dependencies": {
     "debug": "*",
     "dmg": "~0.0.3",
