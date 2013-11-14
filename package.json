@@ -1,6 +1,6 @@
 {
   "name": "mozilla-extract",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "James Lal [:lightsofapollo]",
   "description": "Extract a mozilla product from .tar.bz2 or .dmg",
   "main": "extract.js",
