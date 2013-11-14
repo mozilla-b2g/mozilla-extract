@@ -1,0 +1,30 @@
+#! /usr/bin/env node
+
+var extract = require('../');
+    program = require('commander'),
+    fs = require('fs');
+
+function main() {
+  program.
+    usage('<source> <destination>').
+    parse(process.argv);
+
+  var source = program.args[1];
+  var destination = program.args[2];
+
+  if (!source || !fs.existsSync(source)) {
+    console.error('source must exist');
+    return process.exit(1);
+  }
+
+  if (!destination) {
+    console.error('destination must be passed.');
+    return process.exit(1);
+  }
+
+  extract(source, destination, function(err) {
+    if (err) throw err;
+  });
+}
+
+main();

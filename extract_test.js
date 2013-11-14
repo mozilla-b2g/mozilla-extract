@@ -1,7 +1,7 @@
 suite('extract', function() {
   this.timeout('100s');
   var assert = require('assert');
-  var extract = require('../lib/extract');
+  var extract = require('./extract');
   var fs = require('fs');
 
   function verifyFixture(path) {
@@ -27,6 +27,7 @@ suite('extract', function() {
 
   function verifyTarbz2(done) {
     return function(err, path) {
+      console.log(path);
       if (err) return done(err);
       var stat = fs.statSync(path);
       assert.ok(stat.isDirectory());
@@ -40,13 +41,13 @@ suite('extract', function() {
         return test('dmg can only be run on process.platform === darwin');
 
       var fixture =
-        verifyFixture(__dirname + '/fixtures/b2g.dmg');
+        verifyFixture(__dirname + '/test/fixtures/b2g.dmg');
 
       var out =
-        __dirname + '/extract-out/dmg';
+        __dirname + '/test/extract-out/dmg';
 
       test('extract', function(done) {
-        extract('b2g', 'b2g.dmg', fixture, out, verifyDmg(done));
+        extract(fixture, out, verifyDmg(done));
       });
     });
 
@@ -55,13 +56,13 @@ suite('extract', function() {
         return test('cannot run on windows');
 
       var fixture =
-        verifyFixture(__dirname + '/fixtures/b2g.tar.bz2');
+        verifyFixture(__dirname + '/test/fixtures/b2g.tar.bz2');
 
       var out =
-        __dirname + '/extract-out/tarbz2';
+        __dirname + '/test/extract-out/tarbz2';
 
       test('extract', function(done) {
-        extract('b2g', 'b2g.tar.bz2', fixture, out, verifyTarbz2(done));
+        extract(fixture, out, verifyTarbz2(done));
       });
     });
   });
@@ -72,13 +73,13 @@ suite('extract', function() {
         return test('dmg can only be run on process.platform === darwin');
 
       var fixture =
-        verifyFixture(__dirname + '/fixtures/firefox-nightly.dmg');
+        verifyFixture(__dirname + '/test/fixtures/firefox-nightly.dmg');
 
       var out =
-        __dirname + '/extract-out/firefox-nightly-dmg';
+        __dirname + '/test/extract-out/firefox-nightly-dmg';
 
       test('extract', function(done) {
-        extract('firefox', 'firefox.dmg', fixture, out, verifyDmg(done));
+        extract(fixture, out, verifyDmg(done));
       });
     });
 
@@ -87,13 +88,13 @@ suite('extract', function() {
         return test('dmg can only be run on process.platform === darwin');
 
       var fixture =
-        verifyFixture(__dirname + '/fixtures/firefox-release.dmg');
+        verifyFixture(__dirname + '/test/fixtures/firefox-release.dmg');
 
       var out =
-        __dirname + '/extract-out/firefox-release-dmg';
+        __dirname + '/test/extract-out/firefox-release-dmg';
 
       test('extract', function(done) {
-        extract('firefox', 'firefox.dmg', fixture, out, verifyDmg(done));
+        extract(fixture, out, verifyDmg(done));
       });
     });
 
@@ -102,13 +103,13 @@ suite('extract', function() {
         return test('cannot run on windows');
 
       var fixture =
-        verifyFixture(__dirname + '/fixtures/firefox-nightly.tar.bz2');
+        verifyFixture(__dirname + '/test/fixtures/firefox-nightly.tar.bz2');
 
       var out =
-        __dirname + '/extract-out/firefox-nightly-tarbz2';
+        __dirname + '/test/extract-out/firefox-nightly-tarbz2';
 
       test('extract', function(done) {
-        extract('firefox', 'firefox.tar.bz2', fixture, out, verifyTarbz2(done));
+        extract(fixture, out, verifyTarbz2(done));
       });
     });
 
@@ -117,13 +118,13 @@ suite('extract', function() {
         return test('cannot run on windows');
 
       var fixture =
-        verifyFixture(__dirname + '/fixtures/firefox-release.tar.bz2');
+        verifyFixture(__dirname + '/test/fixtures/firefox-release.tar.bz2');
 
       var out =
-        __dirname + '/extract-out/firefox-release-tarbz2';
+        __dirname + '/test/extract-out/firefox-release-tarbz2';
 
       test('extract', function(done) {
-        extract('firefox', 'firefox.tar.bz2', fixture, out, verifyTarbz2(done));
+        extract(fixture, out, verifyTarbz2(done));
       });
     });
 
